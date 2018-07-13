@@ -2,6 +2,11 @@
 
 echo "Главный модуль и главная страница";
 
+$details = R::find('about');
+// print_r($details);
+$aboutName = $details[1]['name'];
+$aboutDescription = $details[1]['description'];
+
 $title = "Главная";
 $content = "Содержание главной";
 
