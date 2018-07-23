@@ -10,10 +10,10 @@
 	</div> -->
 
 	<div class="login-page-form__row">
-		<input name="email" class="input" type="email" placeholder="E-mail" />
+		<input name="email" class="input" type="email" placeholder="E-mail" value="info@mail.com" />
 	</div>
 	<div class="login-page-form__row">
-		<input name="password" class="input" type="password" placeholder="Пароль" />
+		<input name="password" class="input" type="password" placeholder="Пароль" value="1234" />
 	</div>
 	<div class="login-page-form__row">
 		<div class="login-page-form__col">
