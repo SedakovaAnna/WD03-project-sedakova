@@ -6,7 +6,7 @@
 		<img class="card-post__img" src="<?=HOST?>usercontent/blog-no-image.jpg" alt="<?=$post->title?>" />
 		<?php } ?>
 		<div class="title-4">
-			<?=mbCutString($post->title, 42)?>
+			<?=mbCutString($post->title, 40)?>
 		</div>
 		<a class="button" href="<?=HOST?>blog/post?id=<?=$post->id?>">Читать</a>
 	</div>
