@@ -5,9 +5,9 @@
 	require ROOT . "templates/_parts/_errors.tpl"
 	?>
 
-	<!-- <div class="registration-page-form__row">
+	<div class="registration-page-form__row">
 		<div class="error hidden">Введите email</div>
-	</div> -->
+	</div>
 
 	<div class="login-page-form__row">
 		<input name="email" class="input" type="email" placeholder="E-mail" value="info@mail.com" />
@@ -30,7 +30,8 @@
 		</div>
 	</div>
 	<div class="login-page-form__footer">
-		<input name="login" type="hidden" value="login" />
+		<input name="login" type="submit" value="login" />
 		<a class="button button--enter">Войти</a>
+		<!-- <input class="button button--enter" name="login" type="submit" value="login" /> -->
 	</div>
 </form>

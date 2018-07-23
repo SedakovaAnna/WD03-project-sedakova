@@ -25,7 +25,7 @@ if ( isset($_POST['lost-password'])) {
 			$recovery_message = "<p>Код для сброса пароля: <b>$recovery_code</b></p>";
 			$recovery_message .= "<p>Для сброса пароля перейдите по ссылке ниже, и установите новый пароль:</p>";
 			$recovery_message .= '<p><a href="' . HOST;
-			$recovery_message .= "set-new-password?email=" . $_POST['email'] . "&code=" . $recovery_code;
+			$recovery_message .= "set-new-password?email=" . $_POST['email'] . "&code=" . $recovery_code; 
 			$recovery_message .= '" target="_blank">';
 			$recovery_message .= "Установить новый пароль</a></p>";
 
@@ -36,9 +36,8 @@ if ( isset($_POST['lost-password'])) {
 			
 			mail($_POST['email'], 'Восстановление доступа', $recovery_message, $headers);
 			
-			// $success[] = "Инструкции по восстановлению доступа высланы на " . $_POST['email'];
 			$success[] = [
-					'title' => "Все отлично!)" ,
+					'title' => "Все отлично!" ,
 					'desc' => "<p>Инструкции по восстановлению доступа высланы на {$_POST['email']}</p>" 
 
 				];

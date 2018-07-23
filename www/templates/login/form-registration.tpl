@@ -3,7 +3,7 @@
 	<?php
 		require ROOT . "templates/_parts/_errors.tpl"
 	 ?>
-	<!-- <div class="registration-page-form__row">
+	<div class="registration-page-form__row">
 		<div class="error hidden">Введите email</div>
 	</div>
 	<div class="registration-page-form__row error-busy-email-password">
@@ -15,7 +15,7 @@
 					<a class="error-with-desc__link" href="#">восстановлением пароля</a> , чтобы войти на сайт.</div>
 			</div>
 		</div>
-	</div> -->
+	</div>
 	<div class="registration-page-form__row">
 		<input name="email" class="input" type="email" placeholder="E-mail" />
 	</div>
@@ -23,7 +23,7 @@
 		<input name="password" class="input" type="password" placeholder="Пароль" />
 	</div>
 	<div class="registration-page-form__footer">
-		<input name="register" type="hidden" value="register" />
+		<input name="register" type="submit" value="register" />
 		<a class="button button--registration">Регистрация</a>
 	</div>
 </form>

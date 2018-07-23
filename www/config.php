@@ -22,6 +22,6 @@ define('DB_PASSWORD', '');
 * Настройки для отправки
 */
 define('SITE_NAME', 'личный сайт');
-define('SITE_EMAIL', 'info@webdev03.com');
+define('SITE_EMAIL', 'info@project.com');
 define('ADMIN_EMAIL', 'tuzik198@mail.ru');
 ?>
