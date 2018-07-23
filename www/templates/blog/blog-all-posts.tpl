@@ -1,0 +1,1 @@
+blog-all-posts.tpl

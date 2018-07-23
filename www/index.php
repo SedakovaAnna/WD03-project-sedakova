@@ -61,10 +61,10 @@ switch ($uri[0]) {
 		include ROOT . "modules/profile/edit.php";
 		break;
 
+
+// БЛОГ
 	case 'blog':
-		echo "Блог";
-		echo "<br>";
-		echo "$uri[1]";
+		include ROOT . "modules/blog/index.php";
 		break;
 	
 	default:

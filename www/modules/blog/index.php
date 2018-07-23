@@ -1,18 +1,18 @@
 <?php 
 
-		
-		
-echo "Блог";
+$title = "Блог - все записи";
 
-//готовим контент для главной страницы
-ob_start();//буферизированный вывод
-include ROOT . "templates/blog/blog.tpl";
-$content = ob_get_contents();//сохранить в переменную всё что вывело в буфер обмена
-ob_end_clean();//закончить вывод
-//подключение шаблонов с путем от корневой папки сайта
-
+// Готовим контент для центральной части
+ob_start();
 include ROOT . "templates/_parts/_header.tpl";
+include ROOT . "templates/blog/blog-all-posts.tpl";
+$content = ob_get_contents();
+ob_end_clean();
+
+// Выводим шаблоны
+include ROOT . "templates/_parts/_head.tpl";
 include ROOT . "templates/template.tpl";
 include ROOT . "templates/_parts/_footer.tpl";
-		
- ?>
+include ROOT . "templates/_parts/_foot.tpl";
+
+?>
