@@ -2,6 +2,9 @@
 
 $title = "Блог - все записи";
 
+//посты из БД
+$posts = R::find('posts', 'ORDER BY id DESC');
+
 // Готовим контент для центральной части
 ob_start();
 include ROOT . "templates/_parts/_header.tpl";
