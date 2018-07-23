@@ -8,7 +8,7 @@ session_start();
 // echo ROOT;
 
 $errors = array(); //массив с ошибками
-
+$success = array();
 // РОУТЕР
 
 // http://project/port/blog/post?id=2

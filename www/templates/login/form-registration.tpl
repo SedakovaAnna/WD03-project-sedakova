@@ -23,7 +23,7 @@
 		<input name="password" class="input" type="password" placeholder="Пароль" />
 	</div>
 	<div class="registration-page-form__footer">
-		<input name="register" type="submit" value="register" />
+		<input name="register" type="hidden" value="register" />
 		<a class="button button--registration">Регистрация</a>
 	</div>
 </form>
