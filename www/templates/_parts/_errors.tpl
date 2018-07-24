@@ -1,5 +1,10 @@
 <?php 
 
+	// echo "<pre>";
+	// print_r($errors);
+	// echo "</pre>";
+
+
 	foreach ($errors as $error) {
 		if ( count($error) == 1) {  ?>
 			
