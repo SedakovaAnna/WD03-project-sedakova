@@ -92,6 +92,13 @@ switch ($uri[0]) {
 		include ROOT . "modules/blog/post.php";
 		break;
 
+	case 'blog/post-edit':
+		include ROOT . "modules/blog/post-edit.php";
+		break;
+
+	case 'blog/post-delete':
+		include ROOT . "modules/blog/post-delete.php";
+		break;
 	
 	default:
 		echo "Главная страница / 404";

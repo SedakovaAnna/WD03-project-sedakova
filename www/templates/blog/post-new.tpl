@@ -9,6 +9,20 @@
 					<div class="fieldset"><label><div class="fieldset__title">Название</div>
 						<input class="input" placeholder="Введите название" name="postTitle"/></label>
 					</div>
+
+					<div class="fieldset">
+						<label>
+							<div class="fieldset__title">Категория</div>
+							<select name="postCat">
+								<?php foreach ($cats as $cat): ?>
+								<option value="<?=$cat['id']?>">
+									<?=$cat['cat_title']?>
+								</option>
+								<?php endforeach ?>
+							</select>
+						</label>
+					</div>
+
 					<div class="fieldset">
 						<div class="fieldset__title">Изображение</div>
 						<div class="comment-row">Изображение jpg или png, рекомендуемая ширина 945px и больше, высота от 400px и более, вес до 2Мб.</div>
@@ -17,7 +31,8 @@
 						</div>
 					</div>
 					<div class="fieldset"><label><div class="fieldset__title">Содержание</div>
-						<textarea class="textarea height-200" rows="7" placeholder="Введите описание" name="postText"></textarea>
+						<textarea id="ckEditor" name="postText" class="textarea height-200" rows="7" placeholder="Введите описание"></textarea>
+						<?php include_once ROOT . "templates/_parts/_ckEditorConnect.tpl" ?>
 					</label></div>
 					<div class="row">
 						<div class="col-md-auto pr-10">

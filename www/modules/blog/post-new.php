@@ -1,24 +1,31 @@
 <?php 
 
+if ( !isAdmin() ) {
+	header("Location: " . HOST);
+	die();
+}
+
 $title = "Добавить новый пост";
+
+$cats = R::find('categories', 'ORDER BY cat_title ASC');
 
 if ( isset($_POST['postNew'])) {
 
 	if ( trim($_POST['postTitle']) == '') {
-		$errors[] = ['title' => 'Введите Название поста' ];
+		$errors[] = ['title' => 'Введите название поста' ];
 	}
 
 	if ( trim($_POST['postText']) == '') {
-		$errors[] = ['text' => 'Введите Текст поста' ];
+		$errors[] = ['text' => 'Введите текст поста' ];
 	}
 
 	if ( empty($errors)) {
 		$post = R::dispense('posts'); //создать
-		$post->title = htmlentities($_POST['postTitle']);
-		$post->cat = htmlentities($_POST['postCat']);
-		$post->dateTime = R::isoDateTime();
-		$post->text = $_POST['postText'];
-		$post->authorId = $_SESSION['logged_user']['id'];
+		$post->title = htmlentities($_POST['postTitle']); //название
+		$post->cat = htmlentities($_POST['postCat']);//категория
+		$post->dateTime = R::isoDateTime();//дата время
+		$post->text = $_POST['postText'];//текст поста
+		$post->authorId = $_SESSION['logged_user']['id'];//автор
 
 		if ( isset($_FILES["postImg"]["name"]) && $_FILES["postImg"]["tmp_name"] != "" ) {
 			

@@ -94,8 +94,8 @@ input.button {
 	background-color: transparent;
 }
 
-.mr-330 {
-	margin-right: 330px !important;
+.mr-350 {
+	margin-right: 350px !important;
 }
 
 html, body {
@@ -118,6 +118,3 @@ body::before {
 	/*background: #36B525;*/
 }
 
-.footer {
-	
-}
