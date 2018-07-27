@@ -18,8 +18,8 @@
 		</div>
 	</div>
 	<div class="login-page-form__footer">
-		<input name="lost-password" type="submit" value="lost-password" />
-		<a class="button button--lost">Восстановить пароль</a>
+		<input name="lost-password" type="hidden" value="lost-password" />
+		<input type="submit" class="button button--lost" value="Восстановить пароль" >
 		<!-- <input class="button button--lost" name="lost-password" type="submit" value="Восстановить пароль" /> -->
 	</div>
 </form>

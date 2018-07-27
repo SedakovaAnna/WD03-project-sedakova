@@ -30,8 +30,8 @@
 		</div>
 	</div>
 	<div class="login-page-form__footer">
-		<input name="login" type="submit" value="login" />
-		<a class="button button--enter">Войти</a>
-		<!-- <input class="button button--enter" name="login" type="submit" value="login" /> -->
+		<input name="login" type="hidden" value="login" />
+		<!-- <a class="button button--enter">Войти</a> -->
+		<input class="button button--enter" type="submit" value="Войти" >
 	</div>
 </form>
