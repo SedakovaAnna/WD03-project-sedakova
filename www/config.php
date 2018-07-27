@@ -14,10 +14,10 @@ define('ROOT', dirname(__FILE__).'/');
 /**
 * Устанавливает настройки соединения с базой данных
 */
-define('MYSQL_SERVER', 'localhost');
-define('MYSQL_USER', 'root');
-define('MYSQL_PASSWORD', '');
-define('MYSQL_DB', 'WD03-project-sedakova');
+define('DB_SERVER', 'localhost');
+define('DB_NAME', 'WD03-project-sedakova');
+define('DB_USER', 'root');
+define('DB_PASSWORD', '');
 
 
 ?>
