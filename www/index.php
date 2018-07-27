@@ -100,6 +100,20 @@ switch ($uri[0]) {
 		include ROOT . "modules/blog/post-delete.php";
 		break;
 	
+//КОНТАКТЫ
+	case 'contacts':
+		include "modules/contacts/index.php";
+		break;
+
+	case 'contacts-edit':
+		include "modules/contacts/edit.php";
+		break;
+
+	case 'messages':
+		include "modules/contacts/messages.php";
+		break;
+
+//404
 	default:
 		echo "Главная страница / 404";
 		break;
