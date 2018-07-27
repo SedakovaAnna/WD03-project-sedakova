@@ -61,6 +61,23 @@ switch ($uri[0]) {
 		include ROOT . "modules/profile/edit.php";
 		break;
 
+// КАТЕГОРИИ
+	case 'blog/categories':
+		include "modules/categories/all.php";
+		break;
+
+	case 'blog/category-new':
+		include "modules/categories/new.php";
+		break;
+
+	case 'blog/category-edit':
+		include "modules/categories/edit.php";
+		break;
+
+
+	case 'blog/category-delete':
+		include "modules/categories/delete.php";
+		break;
 
 // БЛОГ
 	case 'blog':
