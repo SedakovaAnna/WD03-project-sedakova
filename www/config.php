@@ -18,6 +18,10 @@ define('DB_SERVER', 'localhost');
 define('DB_NAME', 'WD03-project-sedakova');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
-
-
+/**
+* Настройки для отправки
+*/
+define('SITE_NAME', 'личный сайт');
+define('SITE_EMAIL', 'info@project.com');
+define('ADMIN_EMAIL', 'tuzik198@mail.ru');
 ?>

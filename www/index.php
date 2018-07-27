@@ -1,65 +1,74 @@
 <?php 
 require "config.php";
 require "db.php";
+require ROOT . "libs/functions.php";
 
+session_start();
 // echo HOST;
 // echo ROOT;
 
+$errors = array(); //массив с ошибками
+$success = array();
 // РОУТЕР
 
 // http://project/port/blog/post?id=2
 $uri = $_SERVER["REQUEST_URI"]; 
-
-echo $uri; // /port/blog/post?id=2
-echo "<br>";
-
 //убираем / в конце
 $uri = rtrim($uri, "/");
-echo $uri; // /port/blog/post?id=2
-echo "<br>";
-
 //обработка запроса с помощью встроенного фильтра FILTER_SANITIZE_URL 
 $uri = filter_var($uri, FILTER_SANITIZE_URL);
-echo $uri; // /port/blog/post?id=2
-echo "<br>";
-
 //убираем / в начале, первый символ
 $uri = substr($uri, 1);
-echo $uri; // port/blog/post?id=2
-echo "<br>";
-
 //разбить строку с разделителем "?", превратив ее в массив. Если отправлен GET запрос.
 $uri = explode('?', $uri);
-print_r($uri); // массив Array ( [0] => port/blog/post [1] => id=2 )
-echo "<br>";
-echo "<br>";
 
 //Роутер
 
 switch ($uri[0]) {
 	case '':
-		// echo "Главная страница";
+		//главная
 		include "modules/main/index.php";
 		break;
 	
-	case 'about':
-		// echo "О пользователе";
-		include "modules/about/index.php";
+// ::::::::::::::::::: USERS :::::::::::::::::::
+
+		//страница входа
+	case 'login':
+		require ROOT . "modules/login/login.php";
 		break;
-	
-	case 'contacts':
-		// echo "Контакты";
-		include "modules/contacts/index.php";
+		//страница регистрации
+	case 'registration':
+		include ROOT . "modules/login/registration.php";
 		break;
-	
+		//страница выхода
+	case 'logout':
+		include ROOT . "modules/login/logout.php";
+		break;
+		//страница восстановления пароля
+	case 'lost-password':
+		include ROOT . "modules/login/lost-password.php";
+		break;
+		//страница задания нового пароля
+	case 'set-new-password':
+		include ROOT . "modules/login/set-new-password.php";
+		break;
+		//страница о пользователе
+	case 'profile':
+		include ROOT . "modules/profile/index.php";
+		break;
+		//редактирование информации о пользователе
+	case 'profile-edit':
+		include ROOT . "modules/profile/edit.php";
+		break;
+
 	case 'blog':
-		// echo "Блог";
-		include "modules/blog/index.php";
+		echo "Блог";
+		echo "<br>";
+		echo "$uri[1]";
 		break;
 	
 	default:
-		// echo "404 На главную";
-		include "modules/main/index.php";
+		echo "Главная страница / 404";
 		break;
 }
 
