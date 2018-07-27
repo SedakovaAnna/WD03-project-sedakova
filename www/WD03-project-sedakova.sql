@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 25 2018 г., 14:34
+-- Время создания: Июл 27 2018 г., 09:49
 -- Версия сервера: 5.6.37
 -- Версия PHP: 5.6.31
 
@@ -62,6 +62,33 @@ INSERT INTO `categories` (`id`, `cat_title`) VALUES
 (3, 'Мото'),
 (4, 'Новое'),
 (6, 'Пейзажи');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `post_id` int(11) UNSIGNED DEFAULT NULL,
+  `user_id` int(11) UNSIGNED DEFAULT NULL,
+  `text` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `date_time` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Дамп данных таблицы `comments`
+--
+
+INSERT INTO `comments` (`id`, `post_id`, `user_id`, `text`, `date_time`) VALUES
+(1, 20, 5, 'мясо из пробирки', '2018-07-27 08:44:45'),
+(2, 20, 5, ' сокрушительных поражений и заняла одно из последних мест. Но эта неудача не деморализовала молодую шахматистку. С удвоенной энергией она взял', '2018-07-27 08:45:44'),
+(3, 20, 5, 'поорира (Москва, 1949/50) Руденко блестяще заняла первое место, набрав 11,5 очков из 15, и завоевала золотую медаль чемпионки мира.', '2018-07-27 08:46:22'),
+(4, 20, 5, 'ваа', '2018-07-27 08:46:30'),
+(5, 20, 5, 'вааира (Москва, 1949/50) Руденко блестяще заняла первое место, набрав 11,5 очков из 15, и завоевала золотую медаль чемпионки мира.', '2018-07-27 09:32:04'),
+(6, 17, 5, 'роод руководством П. Романовского и А. Толуша окрепло и развилось её дарование, окончательно сложился боевой комбинационный стиль игры. Людмила Владим', '2018-07-27 09:35:18'),
+(7, 16, 5, 'мясо из пробирки', '2018-07-27 09:43:05');
 
 -- --------------------------------------------------------
 
@@ -145,6 +172,14 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `index_foreignkey_comments_post` (`post_id`),
+  ADD KEY `index_foreignkey_comments_user` (`user_id`);
+
+--
 -- Индексы таблицы `posts`
 --
 ALTER TABLE `posts`
@@ -171,6 +206,11 @@ ALTER TABLE `about`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT для таблицы `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT для таблицы `posts`
 --
