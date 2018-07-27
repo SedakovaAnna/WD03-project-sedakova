@@ -70,3 +70,7 @@ input.button {
 	background-image: -o-linear-gradient(bottom, #006e3b 0%, #00a85a 100%);
 	background-image: linear-gradient(to top, #006e3b 0%, #00a85a 100%);
 }
+
+.header__nav-link--active {
+border-bottom: none;
+}
