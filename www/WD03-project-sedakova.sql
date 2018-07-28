@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 27 2018 г., 12:02
+-- Время создания: Июл 28 2018 г., 11:37
 -- Версия сервера: 5.6.37
 -- Версия PHP: 5.6.31
 
@@ -102,6 +102,32 @@ INSERT INTO `contacts` (`id`, `email`, `phone`, `address`, `name`, `secondname`,
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `message` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `date_time` datetime DEFAULT NULL,
+  `message_file_name_original` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `message_file` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Дамп данных таблицы `messages`
+--
+
+INSERT INTO `messages` (`id`, `email`, `name`, `message`, `date_time`, `message_file_name_original`, `message_file`) VALUES
+(1, 'tuzik198@mail.ru', 'Анна', 'Привет!', '2018-07-28 09:07:17', '', ''),
+(6, 'info@mail.com', 'anna', 'рным подсчетом позиции кастомного балуна, т.е. в каких то частях карты балун открывается за пределами карты, что не красиво и н', '2018-07-28 11:35:39', '0xvDwhWk_IA.jpg', '59230387.jpg'),
+(7, 'info@mail.ru', 'Анна', 'ам балуна метки карты надо добавить balloonAutoPan: false &mdash; чтобы выключить автоматическое кривое выравнивание.\r\n2) Теперь при событии ba', '2018-07-28 11:36:15', '280_78_csupload_29479101.jpg', '-518407869.jpg'),
+(8, 'tuzik198@mail.ru', 'Анна', 'к это работает можете посмотреть в примере выше.', '2018-07-28 11:36:41', 'a40da81d6a84cae75d7839697f7fffe4.jpg', '794190714.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `posts`
 --
 
@@ -189,6 +215,12 @@ ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `posts`
 --
 ALTER TABLE `posts`
@@ -220,6 +252,11 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `contacts`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT для таблицы `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT для таблицы `posts`
 --
