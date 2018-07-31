@@ -9,7 +9,7 @@
 			<a class="header__nav-link <?= ($uri[0] == "about") ? "header__nav-link--active" : "" ?>" href="<?=HOST?>about">Обо мне</a>
 		</li>
 		<li class="header__nav-items">
-			<a class="header__nav-link <?= ($uri[0] == "portfolio") ? "header__nav-link--active" : "" ?>" href="<?=HOST?>portfolio">Работы</a>
+			<a class="header__nav-link <?= ($uri[0] == "portfolio") ? "header__nav-link--active" : "" ?>" href="<?=HOST?>work">Работы</a>
 		</li>
 		<li class="header__nav-items">
 			<a class="header__nav-link <?= ($uri[0] == "blog") ? "header__nav-link--active" : "" ?>" href="<?=HOST?>blog">Блог</a>
