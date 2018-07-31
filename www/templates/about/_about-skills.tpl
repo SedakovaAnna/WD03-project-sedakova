@@ -1,5 +1,5 @@
 <?php function showIndicator($title, $value, $color = ''){ 
-	$indicatorWidth = 120;
+	$indicatorWidth = 150;
 	$radius = ($indicatorWidth - 20) / 2;
 	$perimetr = 2 * pi() * $radius;
 	$offset = $perimetr * ( 1 - intval($value)/100);
