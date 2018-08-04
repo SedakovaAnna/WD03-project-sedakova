@@ -123,3 +123,13 @@ body::before {
 	height: 48px;
 	background-size: cover;
 }
+
+.contact-item {
+	margin-bottom: 15px;
+}
+
+.contact-social-link {
+	font-weight: 700;
+	margin-bottom: 15px;
+	display: block;
+}

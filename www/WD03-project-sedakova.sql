@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 27 2018 г., 09:49
+-- Время создания: Июл 27 2018 г., 12:02
 -- Версия сервера: 5.6.37
 -- Версия PHP: 5.6.31
 
@@ -21,25 +21,6 @@ SET time_zone = "+00:00";
 --
 -- База данных: `WD03-project-sedakova`
 --
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `about`
---
-
-CREATE TABLE `about` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `about`
---
-
-INSERT INTO `about` (`id`, `name`, `description`) VALUES
-(1, 'Егор Казаков', 'Я веб-разработчик');
 
 -- --------------------------------------------------------
 
@@ -88,7 +69,35 @@ INSERT INTO `comments` (`id`, `post_id`, `user_id`, `text`, `date_time`) VALUES
 (4, 20, 5, 'ваа', '2018-07-27 08:46:30'),
 (5, 20, 5, 'вааира (Москва, 1949/50) Руденко блестяще заняла первое место, набрав 11,5 очков из 15, и завоевала золотую медаль чемпионки мира.', '2018-07-27 09:32:04'),
 (6, 17, 5, 'роод руководством П. Романовского и А. Толуша окрепло и развилось её дарование, окончательно сложился боевой комбинационный стиль игры. Людмила Владим', '2018-07-27 09:35:18'),
-(7, 16, 5, 'мясо из пробирки', '2018-07-27 09:43:05');
+(7, 16, 5, 'мясо из пробирки', '2018-07-27 09:43:05'),
+(8, 16, 5, 'мясо из пробирки', '2018-07-27 09:59:18');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `phone` double DEFAULT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `secondname` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `skype` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `vk` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `fb` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `github` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `twitter` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Дамп данных таблицы `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `email`, `phone`, `address`, `name`, `secondname`, `skype`, `vk`, `fb`, `github`, `twitter`) VALUES
+(1, 'info@mail.ru', 890529121548, 'г. Череповец, ул. Сталеваров, 44', 'Анна', 'Седакова', 'nusia198', 'https://vk.com/anetta_pretty', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -160,12 +169,6 @@ INSERT INTO `users` (`id`, `email`, `role`, `password`, `name`, `secondname`, `c
 --
 
 --
--- Индексы таблицы `about`
---
-ALTER TABLE `about`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Индексы таблицы `categories`
 --
 ALTER TABLE `categories`
@@ -178,6 +181,12 @@ ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
   ADD KEY `index_foreignkey_comments_post` (`post_id`),
   ADD KEY `index_foreignkey_comments_user` (`user_id`);
+
+--
+-- Индексы таблицы `contacts`
+--
+ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `posts`
@@ -197,11 +206,6 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT для таблицы `about`
---
-ALTER TABLE `about`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
 -- AUTO_INCREMENT для таблицы `categories`
 --
 ALTER TABLE `categories`
@@ -210,7 +214,12 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT для таблицы `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT для таблицы `posts`
 --
