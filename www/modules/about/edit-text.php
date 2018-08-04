@@ -5,40 +5,36 @@ if ( !isAdmin() ) {
 	die();
 }
 
-$title = "Добавить новый пост";
+$title = "Редактировать - Об авторе";
 
-$cats = R::find('categories', 'ORDER BY cat_title ASC');
+$about = R::load('about', 1);
 
-if ( isset($_POST['postNew'])) {
+if ( isset($_POST['textUpdate'])) {
 
-	if ( trim($_POST['postTitle']) == '') {
-		$errors[] = ['title' => 'Введите название поста' ];
+	if ( trim($_POST['name']) == '') {
+		$errors[] = ['title' => 'Введите имя' ];
 	}
 
-	if ( trim($_POST['postText']) == '') {
-		$errors[] = ['title' => 'Введите текст поста' ];
+	if ( trim($_POST['description']) == '') {
+		$errors[] = ['title' => 'Введите описание' ];
 	}
 
 	if ( empty($errors)) {
-		$post = R::dispense('posts'); //создать
-		$post->title = htmlentities($_POST['postTitle']); //название
-		$post->cat = htmlentities($_POST['postCat']);//категория
-		$post->dateTime = R::isoDateTime();//дата время
-		$post->text = $_POST['postText'];//текст поста
-		$post->authorId = $_SESSION['logged_user']['id'];//автор
+		$about->name = htmlentities($_POST['name']);
+		$about->description = $_POST['description'];
 
-		if ( isset($_FILES["postImg"]["name"]) && $_FILES["postImg"]["tmp_name"] != "" ) {
+		if ( isset($_FILES["photo"]["name"]) && $_FILES["photo"]["tmp_name"] != "" ) {
 			
-			// Переменные, информация об изображении
-			$fileName = $_FILES["postImg"]["name"];
-			$fileTmpLoc = $_FILES["postImg"]["tmp_name"];
-			$fileType = $_FILES["postImg"]["type"];
-			$fileSize = $_FILES["postImg"]["size"];
-			$fileErrorMsg = $_FILES["postImg"]["error"];
+			// Write file image params in variables
+			$fileName = $_FILES["photo"]["name"];
+			$fileTmpLoc = $_FILES["photo"]["tmp_name"];
+			$fileType = $_FILES["photo"]["type"];
+			$fileSize = $_FILES["photo"]["size"];
+			$fileErrorMsg = $_FILES["photo"]["error"];
 			$kaboom = explode(".", $fileName);
 			$fileExt = end($kaboom);
 
-			// Проверка изображения
+			// Check file propertties on different conditions
 			list($width, $height) = getimagesize($fileTmpLoc);
 			if($width < 10 || $height < 10){
 				$errors[] = ['title' => 'Изображение не имеет размеров. Загрузите изображение побольше.' ];
@@ -58,7 +54,7 @@ if ( isset($_POST['postNew'])) {
 
 			// Перемещаем загруженный файл в нужную директорию
 			$db_file_name = rand(100000000000,999999999999) . "." . $fileExt;
-			$postImgFolderLocation = ROOT . 'usercontent/blog/';
+			$postImgFolderLocation = ROOT . 'usercontent/about/';
 			$uploadfile = $postImgFolderLocation . $db_file_name;
 			$moveResult = move_uploaded_file($fileTmpLoc, $uploadfile);
 			
@@ -69,37 +65,24 @@ if ( isset($_POST['postNew'])) {
 			include_once( ROOT . "/libs/image_resize_imagick.php");
 			
 			$target_file =  $postImgFolderLocation . $db_file_name;
-			$wmax = 920;
-			$hmax = 620;
-			$img = createThumbnailBig($target_file, $wmax, $hmax);
+			$wmax = 222;
+			$hmax = 222;
+			$img = createThumbnail($target_file, $wmax, $hmax);
 			$img->writeImage($target_file);
-			$post->postImg = $db_file_name;
-
-			$target_file =  $postImgFolderLocation . $db_file_name;
-			$resized_file = $postImgFolderLocation . "320-" . $db_file_name;
-			$wmax = 320;
-			$hmax = 140;
-			$img = createThumbnailCrop($target_file, $wmax, $hmax);
-			$img->writeImage($resized_file);
-			$post->postImgSmall = "320-" . $db_file_name;
+			$about->photo = $db_file_name;
 
 		}
 
-		R::store($post);
-		header('Location: ' . HOST . "blog");
-			// ?result=postCreated");
+		R::store($about);
+		header('Location: ' . HOST . "about");
 		exit();
-
-
 	}
-
-
-
 }
-// Готовим контент для центральной части
+
+//контент   для центральной части
 ob_start();
 include ROOT . "templates/_parts/_header.tpl";
-include ROOT . "templates/blog/post-new.tpl";
+include ROOT . "templates/about/edit-text.tpl";
 $content = ob_get_contents();
 ob_end_clean();
 

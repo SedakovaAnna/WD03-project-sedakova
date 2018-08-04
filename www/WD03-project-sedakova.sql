@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 28 2018 г., 11:37
+-- Время создания: Июл 31 2018 г., 13:58
 -- Версия сервера: 5.6.37
 -- Версия PHP: 5.6.31
 
@@ -21,6 +21,26 @@ SET time_zone = "+00:00";
 --
 -- База данных: `WD03-project-sedakova`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `about`
+--
+
+CREATE TABLE `about` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `description` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `photo` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Дамп данных таблицы `about`
+--
+
+INSERT INTO `about` (`id`, `name`, `description`, `photo`) VALUES
+(1, 'Анна Седакова', '<p>Занимаюсь веб-разработкой</p>\r\n', '222304528.jpg');
 
 -- --------------------------------------------------------
 
@@ -102,6 +122,27 @@ INSERT INTO `contacts` (`id`, `email`, `phone`, `address`, `name`, `secondname`,
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `jobs`
+--
+
+CREATE TABLE `jobs` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `period` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `description` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Дамп данных таблицы `jobs`
+--
+
+INSERT INTO `jobs` (`id`, `period`, `title`, `description`) VALUES
+(2, '2012-2013', 'Системный администратор', 'Детская поликлиника №3'),
+(5, '2013 - настоящее время', 'Гл. специалист по защите информации', 'Официальный сайт города Череповца');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `messages`
 --
 
@@ -159,6 +200,33 @@ INSERT INTO `posts` (`id`, `title`, `cat`, `date_time`, `text`, `author_id`, `po
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `skills`
+--
+
+CREATE TABLE `skills` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `html` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `css` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `js` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `jquery` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `php` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `mysql` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `git` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `gulp` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `npm` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `composer` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Дамп данных таблицы `skills`
+--
+
+INSERT INTO `skills` (`id`, `html`, `css`, `js`, `jquery`, `php`, `mysql`, `git`, `gulp`, `npm`, `composer`) VALUES
+(1, '90', '90', '80', '85', '80', '90', '90', '85', '90', '80');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `users`
 --
 
@@ -195,6 +263,12 @@ INSERT INTO `users` (`id`, `email`, `role`, `password`, `name`, `secondname`, `c
 --
 
 --
+-- Индексы таблицы `about`
+--
+ALTER TABLE `about`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `categories`
 --
 ALTER TABLE `categories`
@@ -215,6 +289,12 @@ ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `jobs`
+--
+ALTER TABLE `jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `messages`
 --
 ALTER TABLE `messages`
@@ -228,6 +308,12 @@ ALTER TABLE `posts`
   ADD KEY `index_foreignkey_posts_author` (`author_id`);
 
 --
+-- Индексы таблицы `skills`
+--
+ALTER TABLE `skills`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `users`
 --
 ALTER TABLE `users`
@@ -237,6 +323,11 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
+--
+-- AUTO_INCREMENT для таблицы `about`
+--
+ALTER TABLE `about`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT для таблицы `categories`
 --
@@ -253,6 +344,11 @@ ALTER TABLE `comments`
 ALTER TABLE `contacts`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT для таблицы `jobs`
+--
+ALTER TABLE `jobs`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
 -- AUTO_INCREMENT для таблицы `messages`
 --
 ALTER TABLE `messages`
@@ -262,6 +358,11 @@ ALTER TABLE `messages`
 --
 ALTER TABLE `posts`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+--
+-- AUTO_INCREMENT для таблицы `skills`
+--
+ALTER TABLE `skills`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT для таблицы `users`
 --

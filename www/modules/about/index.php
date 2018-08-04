@@ -1,17 +1,23 @@
 <?php 
 
-		
-		
-echo "О пользователе";
-//готовим контент для главной страницы
-ob_start();//буферизированный вывод
-include ROOT . "templates/about/about.tpl";
-$content = ob_get_contents();//сохранить в переменную всё что вывело в буфер обмена
-ob_end_clean();//закончить вывод
+$title = "Об авторе";
 
-//подключение шаблонов с путем от корневой папки сайта
+$about = R::load('about', 1);
+$skills = R::load('skills', 1);
+$jobs = R::find('jobs', 'ORDER BY id DESC');
+
+
+//контент   для центральной части
+ob_start();
 include ROOT . "templates/_parts/_header.tpl";
+include ROOT . "templates/about/about.tpl";
+$content = ob_get_contents();
+ob_end_clean();
+
+// Выводим шаблоны
+include ROOT . "templates/_parts/_head.tpl";
 include ROOT . "templates/template.tpl";
 include ROOT . "templates/_parts/_footer.tpl";
+include ROOT . "templates/_parts/_foot.tpl";
 
- ?>
+?>
