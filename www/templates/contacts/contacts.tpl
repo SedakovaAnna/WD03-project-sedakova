@@ -92,22 +92,27 @@
 				</div>
 				<div class="col-md-5">
 					<h2 class="title-2 extrabold">Связаться со мной</h2>
-					<form class="form">
-						<input class="input mb-10" placeholder="Введите имя" />
-						<input class="input mb-10" placeholder="Email" />
-						<textarea class="textarea" rows="5" placeholder="Сообщение"></textarea>
+					<!-- ошибки -->
+					<?php include( ROOT . 'templates/_parts/_errors.tpl') ?>
+					<?php include( ROOT . 'templates/_parts/_success.tpl') ?>
+
+					<form class="form" action="<?=HOST?>contacts" method="POST" enctype="multipart/form-data">
+						<input name="name" class="input mb-10" placeholder="Введите имя" />
+						<input name="email" class="input mb-10" placeholder="Email" />
+						<textarea name="message" class="textarea" rows="5" placeholder="Сообщение"></textarea>
 						<div class="fieldset__title mt-20">Прикрепить файл</div>
 						<div class="comment-row">jpg, png, pdf, doc, весом до 2Мб.</div>
 						<div class="control-row mb-20">
 							<div class="file">
 								<label class="file__label">
-									<input class="file__input" type="file" name="file3" />
+									<input class="file__input" type="file" name="file" />
 									<span class="file__inner-label file__inner-label--large-radius">Выбрать файл</span>
 								</label>
 								<span class="file__inner-caption">Файлы не выбран</span>
 							</div>
 						</div>
-						<a class="button button--save" href="#"> Отправить</a>
+						<input type="submit" name="newMessage" value="Отправить" class="button button--save">
+						<!-- <a class="button button--save" href="#">Отправить</a> -->
 					</form>
 				</div>
 			</div>

@@ -3,7 +3,7 @@
 		if ( count($item) == 1) {  ?>
 			
 			<!-- Однострочная ошибка -->
-			<div class="error error--success"><?=$item['title']?></div>
+			<div class="error error--success mb-15"><?=$item['title']?></div>
 
 <?php 	} else if ( count($item) == 2 ) { ?>
 			
