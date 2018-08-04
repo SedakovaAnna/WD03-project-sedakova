@@ -1447,7 +1447,7 @@ a.user-message__a:hover {
 }
 
 .header {
-	background: url(../../img/bg/header-bg-1.jpg);
+	background: url(../img/bg/header-bg-1.jpg);
 	background-position: center;
 	background-repeat: no-repeat;
 	height: 280px;
@@ -1713,7 +1713,7 @@ a.user-message__a:hover {
 }
 
 .header {
-	background: url(../../img/bg/header-bg-1.jpg);
+	background: url(../img/bg/header-bg-1.jpg);
 	background-position: center;
 	background-repeat: no-repeat;
 	height: 200px;
@@ -2375,7 +2375,7 @@ hr {
 }
 
 .wrapper {
-	background-image: url('../../img/pages/bg-single-work-grad.png');
+	background-image: url('../img/pages/bg-single-work-grad.png');
 	background-repeat: no-repeat;
 	background-size: contain;
 }

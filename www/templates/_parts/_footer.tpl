@@ -26,11 +26,11 @@
 				</ul>
 			</div>
 			<div class="footer__icons">
-				<a href="#"><i class="fab fa-vk"></i></a>
-				<a href="#"><i class="fab fa-twitter"></i></a>
-				<a href="#"><i class="fab fa-youtube"></i></a>
-				<a href="#"><i class="fab fa-instagram"></i></a>
-				<a href="#"><i class="fab fa-facebook"></i></a>
+				<a href="https://vk.com/anetta_pretty"><i class="fab fa-vk"></i></a>
+				<!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
+				<a href="https://www.youtube.com/channel/UCUkKYbaXXXZAIA_77X6HnrQ"><i class="fab fa-youtube"></i></a>
+				<!-- <a href="#"><i class="fab fa-instagram"></i></a> -->
+				<a href="https://www.facebook.com/profile.php?id=100001869694955"><i class="fab fa-facebook"></i></a>
 			</div>
 		</div>
 	</div>
