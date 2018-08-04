@@ -31,7 +31,7 @@
 
 <?php } else {?>
 
-<div class="block-registration">
+<div class="block-registration mt-50">
 	<p>
 		<a href="<?=HOST?>login">Войдите</a> или
 		<a href="<?=HOST?>registration">зарегистрируйтесь</a>

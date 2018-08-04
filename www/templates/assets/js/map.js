@@ -7,41 +7,42 @@ function initMap() {
 		isDraggable = true;
 	}
 
-	var zelenograd = {lat:55.987476, lng: 37.200051};
+	var cherepovets = {lat:59.125906, lng: 37.908612};
 	
 	myMap = new google.maps.Map(document.getElementById('map'), {
-		center: zelenograd,
+		center: cherepovets,
 		zoom: 13,
 		disableDefaultUI: true,
 		draggable: isDraggable,
-		styles: [{"featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{"color": "#444444"}]},{"featureType": "landscape","elementType": "all","stylers": [{"color": "#f2f2f2"}]},{"featureType": "poi","elementType": "all","stylers": [{"visibility": "off"}]},{"featureType": "road", "elementType": "all", "stylers": [{"saturation": -100},{"lightness": 45}]},{"featureType":"road.highway","elementType": "all","stylers": [{"visibility": "simplified"}]},{"featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{"visibility": "off"}]},{"featureType":"transit","elementType": "all","stylers": [{"visibility": "off"}]},{"featureType": "water","elementType": "all","stylers": [{"color": "#46bcec"},{"visibility": "on"}]}]
+		styles: [{"featureType":"road.local","elementType":"geometry","stylers":[{"visibility":"on"}]}]
+
 	});
 
-	var markerZelenograd = new google.maps.Marker({
+	var markerCherepovets = new google.maps.Marker({
 
-	    position: zelenograd,
+	    position: cherepovets,
 	    map: myMap,
-	    title: 'Зеленоград',
-	    icon: '../img/maps/pin-green.png'
+	    title: 'Череповец',
+	    icon: '../../templates/assets/img/maps/pin-blue.png'
 
 	});
 
-	var contentStringZelenograd = '<div id="content">'+
+	var contentStringCherepovets = '<div id="content">'+
 	      '<div id="siteNotice">'+
 	      '</div>'+
-	      '<h1 id="firstHeading" class="firstHeading">Московская обл.</h1>'+
+	      '<h1 id="firstHeading" class="firstHeading">Вологодская обл.</h1>'+
 	      '<div id="bodyContent">'+
-	      'г. Зеленоград</p>'+
+	      'г. Череповец</p>'+
 	      '</div>'+
 	      '</div>';
 	
-	var infowindowZelenograd = new google.maps.InfoWindow({
-		content: contentStringZelenograd,
+	var infowindowCherepovets = new google.maps.InfoWindow({
+		content: contentStringCherepovets,
 		maxWidth: 400
 	});
 
-	markerZelenograd.addListener('click', function() {
-		infowindowZelenograd.open(myMap, markerZelenograd);
+	markerCherepovets.addListener('click', function() {
+		infowindowCherepovets.open(myMap, markerCherepovets);
 	});
 
 }
