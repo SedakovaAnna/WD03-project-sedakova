@@ -91,6 +91,11 @@ input.button {
 	padding-top: 0;
 }
 
+.button--none {
+	display: none;
+	
+}
+
 .uploaded-image {
 	background-color: transparent;
 }
@@ -196,3 +201,8 @@ body::before {
 } 
 
 /*End Indicator */ 
+
+.map {
+	width: 100%;
+	height: 500px;
+}

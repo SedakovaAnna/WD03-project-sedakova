@@ -119,4 +119,8 @@
 		</div>
 	</div>
 </div>
-<div class="map" id="map"><iframe src="https://yandex.ru/map-widget/v1/-/CBuWvWdexA" width="100%" height="500" frameborder="1" allowfullscreen="true"></iframe></div>
+<div class="map" id="map"></div>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIr67yxxPmnF-xb4JVokCVGgLbPtuqxiA&callback=initMap"></script>
+<script src="<?=HOST?>templates/assets/js/map.js"></script>
+
+

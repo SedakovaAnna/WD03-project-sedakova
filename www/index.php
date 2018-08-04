@@ -130,6 +130,23 @@ switch ($uri[0]) {
 		include "modules/about/edit-jobs.php";
 		break;
 
+//ПОРТФОЛИО
+	case 'portfolio':
+		include ROOT . "modules/portfolio/index.php";
+		break;
+	case 'work-new':
+		include ROOT . "modules/portfolio/work-new.php";
+		break;
+	case 'work':
+		include ROOT . "modules/portfolio/work.php";
+		break;
+	case 'work-edit':
+		include ROOT . "modules/portfolio/work-edit.php";
+		break;
+	case 'work-delete':
+		include ROOT . "modules/portfolio/work-delete.php";
+		break;
+
 //404
 	default:
 		echo "Главная страница / 404";

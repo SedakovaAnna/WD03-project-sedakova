@@ -23,7 +23,7 @@
 			<a class="header-admin-nav__link" href="<?=HOST?>blog/categories">Категории</a>
 		</div>
 		<div class="header-admin-nav__items"><i class="fa fa-plus-circle header-admin-nav__icons"></i>
-			<a class="header-admin-nav__link" href="<?=HOST?>work/work-new">Работа</a>
+			<a class="header-admin-nav__link" href="<?=HOST?>work-new">Работа</a>
 		</div>
 		<div class="header-admin-nav__items"><i class="fa fa-edit header-admin-nav__icons"></i>
 			<a class="header-admin-nav__link" href="<?=HOST?>about">Обо мне</a>
